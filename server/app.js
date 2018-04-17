@@ -9,7 +9,7 @@ const app = express();
 // allow cross-origin request
 app.use(cors());
 
-mongoose.connect('mongodb://<dbuser>:<dbpassword>@ds135946.mlab.com:35946/gql-dev');
+mongoose.connect(process.env.MONGOLAB_URI);
 mongoose.connection.once('open', () => {
   console.log('connected to db');
 });
