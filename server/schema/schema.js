@@ -2,6 +2,7 @@ const graphql = require('graphql');
 const _ = require('lodash');
 const Book = require('../models/book');
 const Author = require('../models/author');
+const AmazonViewerType = require('./amazonViewer');
 
 const {
   GraphQLObjectType,
@@ -73,6 +74,12 @@ const RootQuery = new GraphQLObjectType({
         return Author.find({});
       }
     },
+    amazonViewer: {
+      type: AmazonViewerType,
+      resolve(parent, args){
+        return {};
+      }
+    }
   }
 });
 

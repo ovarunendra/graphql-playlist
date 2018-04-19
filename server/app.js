@@ -23,7 +23,7 @@ app.get('/', function(request, response) {
 
 app.use('/graphql', graphqlHTTP({
   schema,
-  graphiql: true,
+  graphiql: !process.env.IS_PROD,
 }));
 
 app.listen(app.get('port'), () => {
