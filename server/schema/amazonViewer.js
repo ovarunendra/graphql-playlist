@@ -10,9 +10,9 @@ const {
 } = graphql;
 
 const SWIPERS = [
-  {id: "1", imageUri: "https://s3.us-east-2.amazonaws.com/ovarunendra-dev-testing-bucket/swiper_2.jpg"},
-  {id: "2", imageUri: "https://s3.us-east-2.amazonaws.com/ovarunendra-dev-testing-bucket/swiper_3.jpg"},
-  {id: "3", imageUri: "https://s3.us-east-2.amazonaws.com/ovarunendra-dev-testing-bucket/swiper_2.jpg"},
+  {id: "1", imageUri: "https://raw.githubusercontent.com/ovarunendra/assets/master/swiper_2.jpg"},
+  {id: "2", imageUri: "https://raw.githubusercontent.com/ovarunendra/assets/master/swiper_3.jpg"},
+  {id: "3", imageUri: "https://raw.githubusercontent.com/ovarunendra/assets/master/swiper_2.jpg"},
 ];
 
 const RECOMMENDED = [
@@ -22,7 +22,7 @@ const RECOMMENDED = [
     itemCreator: "Louise Hay",
     itemPrice: "$10",
     savings: "2.5",
-    imageUri: "https://s3.us-east-2.amazonaws.com/ovarunendra-dev-testing-bucket/recommended_1.jpg",
+    imageUri: "https://raw.githubusercontent.com/ovarunendra/assets/master/recommended_1.jpg",
     rating: 5
   },
   {
@@ -31,7 +31,7 @@ const RECOMMENDED = [
     itemCreator: "Sony",
     itemPrice: "$19.99",
     savings: "17",
-    imageUri: "https://s3.us-east-2.amazonaws.com/ovarunendra-dev-testing-bucket/recommended_2.jpg",
+    imageUri: "https://raw.githubusercontent.com/ovarunendra/assets/master/recommended_2.jpg",
     rating: 5
   },
   {
@@ -40,7 +40,7 @@ const RECOMMENDED = [
     itemCreator: "Ea Sports",
     itemPrice: "$44",
     savings: "6",
-    imageUri: "https://s3.us-east-2.amazonaws.com/ovarunendra-dev-testing-bucket/recommended_3.jpg",
+    imageUri: "https://raw.githubusercontent.com/ovarunendra/assets/master/recommended_3.jpg",
     rating: 3
   }
 ];
