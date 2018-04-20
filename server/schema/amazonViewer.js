@@ -12,7 +12,7 @@ const {
 const SWIPERS = [
   {id: "1", imageUri: "https://raw.githubusercontent.com/ovarunendra/assets/master/swiper_2.jpg"},
   {id: "2", imageUri: "https://raw.githubusercontent.com/ovarunendra/assets/master/swiper_3.jpg"},
-  {id: "3", imageUri: "https://raw.githubusercontent.com/ovarunendra/assets/master/swiper_2.jpg"},
+  {id: "3", imageUri: "https://raw.githubusercontent.com/ovarunendra/assets/master/swiper_1.jpg"},
 ];
 
 const RECOMMENDED = [
