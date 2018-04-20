@@ -9,41 +9,8 @@ const {
   GraphQLNonNull,
 } = graphql;
 
-const SWIPERS = [
-  {id: "1", imageUri: "https://raw.githubusercontent.com/ovarunendra/assets/master/swiper_2.jpg"},
-  {id: "2", imageUri: "https://raw.githubusercontent.com/ovarunendra/assets/master/swiper_3.jpg"},
-  {id: "3", imageUri: "https://raw.githubusercontent.com/ovarunendra/assets/master/swiper_1.jpg"},
-];
-
-const RECOMMENDED = [
-  {
-    id: "1",
-    itemName: "You can heal your life",
-    itemCreator: "Louise Hay",
-    itemPrice: "$10",
-    savings: "2.5",
-    imageUri: "https://raw.githubusercontent.com/ovarunendra/assets/master/recommended_1.jpg",
-    rating: 5
-  },
-  {
-    id: "2",
-    itemName: "Uncharted 4",
-    itemCreator: "Sony",
-    itemPrice: "$19.99",
-    savings: "17",
-    imageUri: "https://raw.githubusercontent.com/ovarunendra/assets/master/recommended_2.jpg",
-    rating: 5
-  },
-  {
-    id: "3",
-    itemName: "Ea UFC 3",
-    itemCreator: "Ea Sports",
-    itemPrice: "$44",
-    savings: "6",
-    imageUri: "https://raw.githubusercontent.com/ovarunendra/assets/master/recommended_3.jpg",
-    rating: 3
-  }
-];
+const Swiper = require('../models/swiper');
+const Recommended = require('../models/recommended');
 
 const SwiperType = new GraphQLObjectType({
   name: 'Swiper',
@@ -72,13 +39,13 @@ const AmazonViewerType = new GraphQLObjectType({
     swiper: {
       type: new GraphQLList(SwiperType),
       resolve(parent, args){
-        return SWIPERS;
+        return Swiper.find({});;
       }
     },
     recommended: {
       type: new GraphQLList(RecommendedType),
       resolve(parent, args){
-        return RECOMMENDED;
+        return Recommended.find({});;
       }
     }
   })
