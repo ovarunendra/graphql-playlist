@@ -49,7 +49,15 @@ const QuestionType = new GraphQLObjectType({
     category: { type: CategoryType },
     question: { type: GraphQLString },
     correctAnswer: { type: GraphQLString },
-    incorrectAnswers: { type: new GraphQLList(GraphQLString) }
+    incorrectAnswers: { type: new GraphQLList(GraphQLString) },
+    options: {
+      type: new GraphQLList(GraphQLString),
+      resolve(parent, args){
+        const { incorrectAnswers, correctAnswer } = parent;
+        const options = incorrectAnswers.concat(correctAnswer);
+        return options.sort(((a, b) => 0.5 - Math.random()));
+      }
+    }
   })
 });
 
