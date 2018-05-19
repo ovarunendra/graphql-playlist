@@ -26,7 +26,7 @@ const QuizViewerType = new GraphQLObjectType({
       },
       resolve(parent, args){
         const { difficulty, category } = args;
-        return Question.find({difficulty, category});
+        return Question.find({category});
       }
     },
     difficulties: {
