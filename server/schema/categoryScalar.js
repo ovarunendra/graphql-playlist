@@ -9,11 +9,11 @@ const CategoryType = new GraphQLScalarType({
         case 'any':
           return 'Any Category';
         case 9:
-          return 'General Knowledge';
+          return 'General Knowledge: India';
         case 10:
-          return 'Entertainment: Books';
+          return 'General Knowledge: Teaching Aptitude';
         case 11:
-          return 'Entertainment: Film';
+          return 'General Knowledge: CTET/TET';
         case 12:
           return 'Entertainment: Music';
         case 13:
@@ -72,11 +72,11 @@ function parseCategory(value) {
     switch (value) {
         case 'Any Category':
           return 'any';
-        case 'General Knowledge':
+        case 'General Knowledge: India':
           return 9;
-        case 'Entertainment: Books':
+        case 'General Knowledge: Teaching Aptitude':
             return 10;
-        case 'Entertainment: Film':
+        case 'General Knowledge: CTET/TET':
           return 11;
         case 'Entertainment: Music':
           return 12;
