@@ -46,4 +46,20 @@ const getBookQuery = gql`
   }
 `;
 
-export {getBooksQuery, getAuthorsQuery, addBookMutation, getBookQuery};
+const getCategoryQuery = gql`
+  {
+    quizViewer{
+      categories
+    }
+  }
+`;
+
+const addQuestionMutation = gql`
+  mutation($difficulty: DifficultyType!, $category: CategoryType!, $question: String!, $correctAnswer: String!, $incorrectAnswers: [String]!){
+    addQuestion(difficulty: $difficulty, category: $category, question: $question, correctAnswer: $correctAnswer, incorrectAnswers: $incorrectAnswers){
+      id
+    }
+  }
+`;
+
+export {getBooksQuery, getAuthorsQuery, addBookMutation, getBookQuery, getCategoryQuery, addQuestionMutation};

@@ -82,3 +82,25 @@ form button{
   box-sizing: border-box;
   color: #fff;
 }
+
+#add-question{
+  background: #fff;
+  padding: 20px;
+  position: fixed;
+  left: 20%;
+  top: 0;
+  width: 60%;
+}
+
+#add-question-button {
+  color: #fff;
+  font-size: 2em;
+  background: #AD1457;
+  border: 0;
+  padding: 0 10px;
+  border-radius: 0;
+  cursor: pointer;
+  position: relative;
+  top: 20px;
+  left: 40%;
+}
