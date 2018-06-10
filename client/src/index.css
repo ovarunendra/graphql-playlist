@@ -40,6 +40,7 @@ form{
 }
 
 form .field{
+  margin-top: 5px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
@@ -50,7 +51,7 @@ form label{
   padding: 6px;
 }
 
-form select, form input{
+form select, form input form textarea{
   margin: 4px;
   padding: 6px;
   box-sizing: border-box;

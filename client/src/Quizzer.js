@@ -68,7 +68,8 @@ class Quizzer extends Component {
 
                 <div className="field">
                     <label>Question:</label>
-                    <input type="text" value={question} onChange={(e) => this.setState({ question: e.target.value })} />
+                    <textarea value={question} onChange={(e) => this.setState({ question: e.target.value })}>
+                    </textarea>
                 </div>
 
                 <div className="field">
