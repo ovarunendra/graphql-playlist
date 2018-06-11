@@ -2,7 +2,6 @@ const {
     GraphQLString,
     GraphQLInt,
     GraphQLID,
-    GraphQLNonNull,
     GraphQLObjectType,
     GraphQLList,
 } = require('graphql');
@@ -61,4 +60,15 @@ const QuestionType = new GraphQLObjectType({
   })
 });
 
-module.exports = { AuthorType, BookType, QuestionType };
+const PostType = new GraphQLObjectType({
+  name: 'PostType',
+  fields: () => ({
+    id: { type: GraphQLID },
+    title: { type: GraphQLString },
+    content: { type: GraphQLString },
+    excerpt: { type: GraphQLString },
+    imageUri: { type: GraphQLString },
+  })
+});
+
+module.exports = { AuthorType, BookType, QuestionType, PostType };

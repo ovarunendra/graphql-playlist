@@ -4,15 +4,13 @@ const Book = require('../models/book');
 const Author = require('../models/author');
 const AmazonViewerType = require('./amazonViewer');
 const QuizViewerType = require('./quizViewer');
+const HealthandwellnessprogramViewerType = require('./healthandwellnessprogramViewer');
 
 const {
   GraphQLObjectType,
-  GraphQLString,
   GraphQLSchema,
   GraphQLID,
-  GraphQLInt,
   GraphQLList,
-  GraphQLNonNull,
 } = graphql;
 
 const { BookType, AuthorType } = require('./types');
@@ -56,6 +54,12 @@ const RootQuery = new GraphQLObjectType({
     },
     quizViewer: {
       type: QuizViewerType,
+      resolve(parent, args){
+        return {};
+      }
+    },
+    healthandwellnessprogramViewer: {
+      type: HealthandwellnessprogramViewerType,
       resolve(parent, args){
         return {};
       }
