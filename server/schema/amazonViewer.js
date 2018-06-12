@@ -39,13 +39,13 @@ const AmazonViewerType = new GraphQLObjectType({
     swiper: {
       type: new GraphQLList(SwiperType),
       resolve(parent, args){
-        return Swiper.find({});;
+        return Swiper.find({});
       }
     },
     recommended: {
       type: new GraphQLList(RecommendedType),
       resolve(parent, args){
-        return Recommended.find({});;
+        return Recommended.find({});
       }
     }
   })

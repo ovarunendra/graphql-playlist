@@ -7,6 +7,7 @@ const {
 } = graphql;
 
 const { PostType } = require('./types');
+const Post = require('../models/post');
 
 const BASE_URL = 'http://healthandwellnessprogram.us';
 
@@ -20,25 +21,7 @@ const HealthandwellnessprogramViewerType = new GraphQLObjectType({
       },
       resolve(parent, args) {
         const { page } = args;
-        const url = `${BASE_URL}/wp-json/wp/v2/posts?page=${page}`;
-        let promises = [];
-        return axios.get(url).then(response => {
-          const { data } = response;
-          data.forEach((post) => {
-            const mediaUrl = post._links['wp:featuredmedia'][0].href;
-            promises.push(axios.get(mediaUrl));
-          });
-          return Promise.all(promises).then(results => {
-            const output = data.map((value, index) => ({
-              id: value.id,
-              title: value.title.rendered,
-              content: value.content.rendered,
-              excerpt: value.excerpt.rendered,
-              imageUri: results[index].data.guid.rendered
-            }));
-            return output;
-          })
-        });
+        return Post.find({}, {}, { skip: (page - 1) * 10, limit: 10 });
       }
     }
   })
