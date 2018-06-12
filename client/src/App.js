@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Route,
 } from 'react-router-dom';
 
