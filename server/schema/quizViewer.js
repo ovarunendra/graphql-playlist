@@ -38,7 +38,7 @@ const QuizViewerType = new GraphQLObjectType({
     categories: {
       type: new GraphQLList(CategoryType),
       resolve(parent, args) {
-        return Array.from({ length: 3 }, (x, i) => i + 9);
+        return [9,10,11,33]; //Array.from({ length: 3 }, (x, i) => i + 9);
       }
     },
     posts: {

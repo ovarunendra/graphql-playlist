@@ -56,6 +56,8 @@ const CategoryType = new GraphQLScalarType({
           return 'Entertainment: Japanese Anime & Manga';
         case 32:
           return 'Entertainment: Cartoon & Animations';
+        case 33:
+          return 'General Knowledge: Computer';
       }
     },
     parseValue(value){
@@ -120,6 +122,8 @@ function parseCategory(value) {
             return 31;
         case 'Entertainment: Cartoon & Animations':
           return 32;
+        case 'General Knowledge: Computer':
+          return 33;
     }
 }
 
