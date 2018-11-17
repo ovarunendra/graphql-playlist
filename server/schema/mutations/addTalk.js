@@ -12,7 +12,7 @@ const addTalk = {
     URL: { type: new GraphQLNonNull(GraphQLString) },
   },
   resolve(parent, args) {
-    const { title, author, imageUri } = args;
+    const { title, author, imageUri, URL } = args;
     let newTalk = new Talk({
       title,
       author,
