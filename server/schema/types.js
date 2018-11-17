@@ -1,9 +1,9 @@
 const {
-    GraphQLString,
-    GraphQLInt,
-    GraphQLID,
-    GraphQLObjectType,
-    GraphQLList,
+  GraphQLString,
+  GraphQLInt,
+  GraphQLID,
+  GraphQLObjectType,
+  GraphQLList,
 } = require('graphql');
 const CategoryType = require('./categoryScalar');
 const DifficultyType = require('./difficultyScalar');
@@ -18,11 +18,11 @@ const AuthorType = new GraphQLObjectType({
     age: { type: GraphQLInt },
     books: {
       type: new GraphQLList(BookType),
-      resolve(parent, args){
-        return Book.find({authorId: parent.id});
-      }
+      resolve(parent, args) {
+        return Book.find({ authorId: parent.id });
+      },
     },
-  })
+  }),
 });
 
 const BookType = new GraphQLObjectType({
@@ -33,11 +33,11 @@ const BookType = new GraphQLObjectType({
     genre: { type: GraphQLString },
     author: {
       type: AuthorType,
-      resolve(parent, args){
+      resolve(parent, args) {
         return Author.findById(parent.authorId);
-      }
+      },
     },
-  })
+  }),
 });
 
 const QuestionType = new GraphQLObjectType({
@@ -51,13 +51,13 @@ const QuestionType = new GraphQLObjectType({
     incorrectAnswers: { type: new GraphQLList(GraphQLString) },
     options: {
       type: new GraphQLList(GraphQLString),
-      resolve(parent, args){
+      resolve(parent, args) {
         const { incorrectAnswers, correctAnswer } = parent;
         const options = incorrectAnswers.concat(correctAnswer);
-        return options.sort(((a, b) => 0.5 - Math.random()));
-      }
-    }
-  })
+        return options.sort((a, b) => 0.5 - Math.random());
+      },
+    },
+  }),
 });
 
 const PostType = new GraphQLObjectType({
@@ -68,7 +68,18 @@ const PostType = new GraphQLObjectType({
     content: { type: GraphQLString },
     excerpt: { type: GraphQLString },
     imageUri: { type: GraphQLString },
-  })
+  }),
 });
 
-module.exports = { AuthorType, BookType, QuestionType, PostType };
+const TalkType = new GraphQLObjectType({
+  name: 'TalkType',
+  fields: () => ({
+    id: { type: GraphQLID },
+    title: { type: GraphQLString },
+    author: { type: GraphQLString },
+    imageUri: { type: GraphQLString },
+    URL: { type: GraphQLString },
+  }),
+});
+
+module.exports = { AuthorType, BookType, QuestionType, PostType, TalkType };

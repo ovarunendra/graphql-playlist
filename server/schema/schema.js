@@ -5,13 +5,9 @@ const Author = require('../models/author');
 const AmazonViewerType = require('./amazonViewer');
 const QuizViewerType = require('./quizViewer');
 const HealthandwellnessprogramViewerType = require('./healthandwellnessprogramViewer');
+const TalkViewerType = require('./talkViewer');
 
-const {
-  GraphQLObjectType,
-  GraphQLSchema,
-  GraphQLID,
-  GraphQLList,
-} = graphql;
+const { GraphQLObjectType, GraphQLSchema, GraphQLID, GraphQLList } = graphql;
 
 const { BookType, AuthorType } = require('./types');
 const mutationFields = require('./mutations');
@@ -21,55 +17,61 @@ const RootQuery = new GraphQLObjectType({
   fields: {
     book: {
       type: BookType,
-      args: {id: { type: GraphQLID }},
-      resolve(parent, args){
+      args: { id: { type: GraphQLID } },
+      resolve(parent, args) {
         // code to get data from db / other source
         return Book.findById(args.id);
-      }
+      },
     },
     author: {
       type: AuthorType,
-      args: {id: {type: GraphQLID }},
-      resolve(parent, args){
+      args: { id: { type: GraphQLID } },
+      resolve(parent, args) {
         return Author.findById(args.id);
-      }
+      },
     },
     books: {
       type: new GraphQLList(BookType),
-      resolve(parent, args){
+      resolve(parent, args) {
         return Book.find({});
-      }
+      },
     },
     authors: {
       type: new GraphQLList(AuthorType),
-      resolve(parent, args){
+      resolve(parent, args) {
         return Author.find({});
-      }
+      },
     },
     amazonViewer: {
       type: AmazonViewerType,
-      resolve(parent, args){
+      resolve(parent, args) {
         return {};
-      }
+      },
     },
     quizViewer: {
       type: QuizViewerType,
-      resolve(parent, args){
+      resolve(parent, args) {
         return {};
-      }
+      },
     },
     healthandwellnessprogramViewer: {
       type: HealthandwellnessprogramViewerType,
-      resolve(parent, args){
+      resolve(parent, args) {
         return {};
-      }
-    }
-  }
+      },
+    },
+    talksViewer: {
+      type: TalkViewerType,
+      resolve() {
+        return {};
+      },
+    },
+  },
 });
 
 const Mutation = new GraphQLObjectType({
   name: 'Mutation',
-  fields: () => mutationFields
+  fields: () => mutationFields,
 });
 
 module.exports = new GraphQLSchema({
