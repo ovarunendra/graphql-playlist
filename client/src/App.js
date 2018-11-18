@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
-import {
-  HashRouter as Router,
-  Route,
-} from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
 
 import Home from './Home';
 import Quizzer from './Quizzer';
+import TechTalks from './TechTalks';
 
 // apollo client setup
 const client = new ApolloClient({
-  uri: '/graphql'
+  uri: '/graphql',
 });
 
 class App extends Component {
@@ -22,6 +20,7 @@ class App extends Component {
           <div>
             <Route exact path="/" component={Home} />
             <Route path="/quizzer" component={Quizzer} />
+            <Route path="/techtalks" component={TechTalks} />
           </div>
         </Router>
       </ApolloProvider>
