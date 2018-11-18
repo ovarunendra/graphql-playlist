@@ -7,12 +7,7 @@ const addTalkMutation = gql`
     $imageUri: String!
     $URL: String!
   ) {
-    addQuestion(
-      title: $title
-      author: $author
-      imageUri: $imageUri
-      URL: $URL
-    ) {
+    addTalk(title: $title, author: $author, imageUri: $imageUri, URL: $URL) {
       id
     }
   }
