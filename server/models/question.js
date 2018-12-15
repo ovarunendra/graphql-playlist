@@ -6,7 +6,7 @@ const questionSchema = new Schema({
   category: Number,
   question: String,
   correctAnswer: String,
-  incorrectAnswers: [String],
+  options: [String],
 });
 
 module.exports = mongoose.model('Question', questionSchema);

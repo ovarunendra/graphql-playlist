@@ -19,8 +19,8 @@ const getAuthorsQuery = gql`
 `;
 
 const addBookMutation = gql`
-  mutation($name: String!, $genre: String!, $authorId: ID!){
-    addBook(name: $name, genre: $genre, authorId: $authorId){
+  mutation($name: String!, $genre: String!, $authorId: ID!) {
+    addBook(name: $name, genre: $genre, authorId: $authorId) {
       name
       id
     }
@@ -28,16 +28,16 @@ const addBookMutation = gql`
 `;
 
 const getBookQuery = gql`
-  query($id: ID){
-    book(id:$id){
+  query($id: ID) {
+    book(id: $id) {
       id
       name
       genre
-      author{
+      author {
         id
         name
         age
-        books{
+        books {
           name
           id
         }
@@ -48,18 +48,37 @@ const getBookQuery = gql`
 
 const getCategoryQuery = gql`
   {
-    quizViewer{
+    quizViewer {
       categories
     }
   }
 `;
 
 const addQuestionMutation = gql`
-  mutation($difficulty: DifficultyType!, $category: CategoryType!, $question: String!, $correctAnswer: String!, $incorrectAnswers: [String]!){
-    addQuestion(difficulty: $difficulty, category: $category, question: $question, correctAnswer: $correctAnswer, incorrectAnswers: $incorrectAnswers){
+  mutation(
+    $difficulty: DifficultyType!
+    $category: CategoryType!
+    $question: String!
+    $correctAnswer: String!
+    $options: [String]!
+  ) {
+    addQuestion(
+      difficulty: $difficulty
+      category: $category
+      question: $question
+      correctAnswer: $correctAnswer
+      options: $options
+    ) {
       id
     }
   }
 `;
 
-export {getBooksQuery, getAuthorsQuery, addBookMutation, getBookQuery, getCategoryQuery, addQuestionMutation};
+export {
+  getBooksQuery,
+  getAuthorsQuery,
+  addBookMutation,
+  getBookQuery,
+  getCategoryQuery,
+  addQuestionMutation,
+};
