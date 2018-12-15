@@ -9,7 +9,7 @@ import TechTalks from './TechTalks';
 
 // apollo client setup
 const client = new ApolloClient({
-  uri: 'http://localhost:8080/graphql',
+  uri: '/graphql',
 });
 
 class App extends Component {
