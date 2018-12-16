@@ -48,14 +48,7 @@ const QuestionType = new GraphQLObjectType({
     category: { type: CategoryType },
     question: { type: GraphQLString },
     correctAnswer: { type: GraphQLString },
-    incorrectAnswers: { type: new GraphQLList(GraphQLString) },
-    options: {
-      type: new GraphQLList(GraphQLString),
-      resolve(parent, args) {
-        const { answers } = parent;
-        return answers;
-      },
-    },
+    options: { type: new GraphQLList(GraphQLString) },
   }),
 });
 

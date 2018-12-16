@@ -54,7 +54,7 @@ class Quizzer extends Component {
         difficulty,
         category,
         question,
-        correctAnswer: options[correctAnswer] || '',
+        correctAnswer: options[parseInt(correctAnswer) - 1] || '',
         options,
       },
     }).then(() => {
@@ -143,16 +143,16 @@ class Quizzer extends Component {
             onChange={e => this.setState({ correctAnswer: e.target.value })}
           >
             <option>Select Correct Answer</option>
-            <option key={0} value={0}>
+            <option key={1} value={1}>
               1
             </option>
-            <option key={1} value={1}>
+            <option key={2} value={2}>
               2
             </option>
-            <option key={2} value={2}>
+            <option key={3} value={3}>
               3
             </option>
-            <option key={3} value={3}>
+            <option key={4} value={4}>
               4
             </option>
           </select>
